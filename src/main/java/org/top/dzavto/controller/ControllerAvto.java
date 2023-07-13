@@ -2,14 +2,14 @@ package org.top.dzavto.controller;
 
 import org.springframework.web.bind.annotation.*;
 import org.top.dzavto.model.Avto;
-import org.top.dzavto.model.AvtoInterface;
+import org.top.dzavto.repository.AvtoInterface;
 
 import java.util.Optional;
 
 @RestController
-public class Controller {
+public class ControllerAvto {
 
-    public Controller(AvtoInterface avtoInterface) {
+    public ControllerAvto(AvtoInterface avtoInterface) {
         this.avtoInterface = avtoInterface;
     }
 

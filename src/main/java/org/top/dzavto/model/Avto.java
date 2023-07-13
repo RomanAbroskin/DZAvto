@@ -1,9 +1,12 @@
 package org.top.dzavto.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
-@Table
+@Table(name = "avto")
 public class Avto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,8 +18,37 @@ public class Avto {
     private Integer god;
     @Column
     private String color;
+
     @Column
     private String nameAvto;
+
+    @ManyToOne
+    @JoinColumn(name = "vladelec_id")
+    private VladelecAvto vladelec;
+
+    @ManyToOne
+    @JoinColumn(name = "stoimost_id")
+    private Stoimost stoimost;
+
+    public Strana getStrana() {
+        return strana;
+    }
+
+    public void setStrana(Strana strana) {
+        this.strana = strana;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "strana_id")
+    private Strana strana;
+
+    public Stoimost getStoimost() {
+        return stoimost;
+    }
+
+    public void setStoimost(Stoimost stoimost) {
+        this.stoimost = stoimost;
+    }
 
     public Integer getId() {
         return id;
@@ -58,5 +90,11 @@ public class Avto {
         this.nameAvto = nameAvto;
     }
 
+    public VladelecAvto getVladelec() {
+        return vladelec;
+    }
 
+    public void setVladelec(VladelecAvto vladelec) {
+        this.vladelec = vladelec;
+    }
 }
